@@ -20,10 +20,10 @@ type ProductParams = { id: string };
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
-  // @Post()
-  // async create(@Body() createCatDto: CreateProductDto) {
-  //   return this.catsService.create(createCatDto);
-  // }
+  @Post()
+  async create(@Body() createCatDto: CreateProductDto) {
+    return this.productsService.create(createCatDto);
+  }
   @Get()
   async findAll(): Promise<Product[]> {
     return this.productsService.findAll();

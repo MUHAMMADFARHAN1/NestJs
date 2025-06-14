@@ -11,10 +11,10 @@ export class ProductsService {
     @InjectModel(Product.name) private readonly ProductModel: Model<Product>,
   ) {}
 
-  //   async create(createProductDto: CreateProductDto): Promise<Product> {
-  //     const createdProduct = await this.ProductModel.create(createProductDto);
-  //     return createdProduct;
-  //   }
+  async create(createProductDto: CreateProductDto): Promise<Product> {
+    const createdProduct = await this.ProductModel.create(createProductDto);
+    return createdProduct;
+  }
 
   async findAll(): Promise<Product[]> {
     return this.ProductModel.find().exec();

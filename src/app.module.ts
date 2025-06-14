@@ -5,6 +5,8 @@ import { ProductsController } from './products/products.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProductsModule } from './products/products.module';
+import { ProductsService } from './products/products.service';
+import { Product, ProductSchema } from './../schemas/product.schema';
 
 @Module({
   imports: [
@@ -20,9 +22,10 @@ import { ProductsModule } from './products/products.module';
       }),
     }),
     ProductsModule,
+    MongooseModule.forFeature([{ name: Product.name, schema: ProductSchema }]),
   ],
   controllers: [AppController, ProductsController],
-  providers: [AppService],
+  providers: [AppService, ProductsService],
 })
 export class AppModule {}
 
