@@ -1,9 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { Collection, HydratedDocument } from 'mongoose';
 
 export type ProductDocument = HydratedDocument<Product>;
 
-@Schema()
+//https://github.com/nestjs/nest/blob/master/sample/01-cats-app/src/cats/dto/create-cat.dto.ts
+
+@Schema({ collection: 'Products' })
 export class Product {
   @Prop()
   name: string;
