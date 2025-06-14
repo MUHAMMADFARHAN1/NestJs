@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ProductsController } from './products/products.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { MongooseModule } from '@nestjs/mongoose';
         uri: config.get<string>('MONGO_URL'),
       }),
     }),
+    ProductsModule,
   ],
   controllers: [AppController, ProductsController],
   providers: [AppService],

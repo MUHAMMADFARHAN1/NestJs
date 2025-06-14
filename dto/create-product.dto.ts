@@ -3,5 +3,5 @@ export class CreateProductDto {
   readonly description: string;
   readonly price: number;
   readonly quantity: number;
-  readonly createdAt: date;
+  readonly createdAt: Date;
 }
