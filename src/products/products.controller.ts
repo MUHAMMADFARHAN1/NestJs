@@ -23,6 +23,11 @@ export class ProductsController {
     return 'There are products in the System';
   }
 
+  @Put()
+  putOne() {
+    return 'There are puts in the System';
+  }
+
   @Get(':id')
   findOne(@Param() params: ProductParams) {
     let { id } = params;
